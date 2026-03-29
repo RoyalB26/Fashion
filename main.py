@@ -1,8 +1,13 @@
-import json
+import os
+import numpy as np
+from dataProcessing import dataProcessing
 
-# Mở file với mode 'r' (read) và encoding 'utf-8' để tránh lỗi font tiếng Việt
-with open('instances_attributes_train2020.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
 
-# Bây giờ 'data' đã là một Dictionary của Python
-print(len(data['images']))
+
+if __name__ == "__main__":
+    dir_path= "D:/Fashion_Data"
+    label_path= os.path.join(dir_path, "instances_attributes_train2020.json")
+    data_path= os.path.join(dir_path, "train")
+    dataProcess= dataProcessing(data_path, label_path, (64,64), 50)
+    data= dataProcess.getData()
+    label= dataProcess.getLabel()
