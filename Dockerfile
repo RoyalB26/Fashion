@@ -10,6 +10,8 @@ COPY . .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
 # Expose port (Railway sẽ override bằng $PORT)
 EXPOSE 8000
 
