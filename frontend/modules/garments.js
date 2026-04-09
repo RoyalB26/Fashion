@@ -1,6 +1,9 @@
 /**
  * Danh sách tất cả các class trang phục và phụ kiện
  */
+
+
+
 const CLOTHING_CLASSES = [
     "shirt", "top", "sweater", "cardigan", "jacket", "vest", "pants", 
     "shorts", "skirt", "coat", "dress", "jumpsuit", "cape", "glasses", 
@@ -48,7 +51,7 @@ function getGarment(index) {
     return "unknown"; // Trả về unknown nếu index không hợp lệ
 }
 
-function drawBoundingBoxes(imageElement, boxes, classes) {
+function drawBoundingBoxes(imageElement, boxes, classes, garments) {
     // Tạo một thẻ canvas ảo trong bộ nhớ (không hiện lên UI)
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -74,7 +77,10 @@ function drawBoundingBoxes(imageElement, boxes, classes) {
         if (!isEssentialApparel(classIndex))
             continue;
         const label = getGarment(classIndex);
-        
+        if (garments.has(label))
+            garments.set(label, garments.get(label) + 1)
+        else
+            garments.set(label, 1)
         const width = x2 - x1;
         const height = y2 - y1;
 

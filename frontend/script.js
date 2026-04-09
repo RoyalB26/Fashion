@@ -38,14 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function logMapElements(value, key, map) {
+        let s= `This image has ${value} ${key} \n`;
+        resultText.value+= s
+    }
+
     // Nút "Xử lý"
     btnProcess.addEventListener('click', async () => {
+        const garments= new Map()
         let data= await sendImageToBackend(originalImage.src)
         // Nơi này sau này bạn có thể gọi API tới backend AI
         // Hiện tại: Mô phỏng việc xử lý bằng cách lấy lại ảnh gốc
-        processedImage.src = drawBoundingBoxes(originalImage, data[0].boxes, data[0].classes);
-        resultText.value = "Thông tin ví dụ: Ảnh đã được xử lý thành công. Độ phân giải, đặc trưng nhận diện,...";
-        
+        processedImage.src = drawBoundingBoxes(originalImage, data[0].boxes, data[0].classes, garments);
+        garments.forEach(logMapElements);
+
         // Hiện khu vực kết quả
         resultArea.classList.remove('hidden');
         // Ẩn nút xử lý để tránh bấm nhiều lần, hoặc có thể giữ lại tùy logic
