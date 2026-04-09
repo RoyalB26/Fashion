@@ -5,4 +5,7 @@ ultralytics
 opencv-python-headless
 numpy
 python-multipart
-torch==2.11.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==2.5.1+cpu 
+torchvision==0.20.1+cpu
+torchaudio==2.5.1+cpu
