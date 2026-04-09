@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Trích Xuất Dữ Liệu Hình Ảnh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Xử Lý Hình Ảnh</h2>
+
+        <div id="upload-area" class="upload-area">
+            <input type="file" id="image-upload" accept="image/*" hidden>
+            <button id="btn-upload-trigger" class="btn primary">Chọn ảnh tải lên</button>
+            <p>Hoặc kéo thả ảnh vào đây</p>
+        </div>
+
+        <div id="action-area" class="action-area hidden">
+            <div class="image-wrapper">
+                <img id="original-image" src="" alt="Ảnh gốc">
+            </div>
+            <div class="button-group">
+                <button id="btn-process" class="btn success">Xử lý ảnh</button>
+                <button id="btn-reset" class="btn secondary">Tải ảnh khác</button>
+            </div>
+        </div>
+
+        <div id="result-area" class="result-area hidden">
+            <h3>Kết quả xử lý</h3>
+            <div class="result-content">
+                <div class="image-wrapper">
+                    <img id="processed-image" src="" alt="Ảnh đã xử lý">
+                </div>
+                <div class="info-wrapper">
+                    <textarea id="result-text" placeholder="Dữ liệu trích xuất/thông tin liên quan sẽ hiển thị ở đây..."></textarea>
+                </div>
+            </div>
+            <button id="btn-download" class="btn primary">Tải xuống kết quả (JSON)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
