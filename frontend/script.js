@@ -1,3 +1,6 @@
+import {sendImageToBackend} from './modules/api_requests.js';
+import { getGarment, isEssentialApparel, drawBoundingBoxes } from './modules/garments.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     // Lấy các element
     const uploadInput = document.getElementById('image-upload');
@@ -36,10 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Nút "Xử lý"
-    btnProcess.addEventListener('click', () => {
+    btnProcess.addEventListener('click', async () => {
+        let data= await sendImageToBackend(originalImage.src)
         // Nơi này sau này bạn có thể gọi API tới backend AI
         // Hiện tại: Mô phỏng việc xử lý bằng cách lấy lại ảnh gốc
-        processedImage.src = originalImage.src;
+        processedImage.src = drawBoundingBoxes(originalImage, data[0].boxes, data[0].classes);
         resultText.value = "Thông tin ví dụ: Ảnh đã được xử lý thành công. Độ phân giải, đặc trưng nhận diện,...";
         
         // Hiện khu vực kết quả
