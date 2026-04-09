@@ -1,4 +1,4 @@
-let API_url = "http://localhost:8000";
+let API_url = "fashion-production-ca2a.up.railway.app";
 
 async function sendImageToBackend(base64) {
     const res = await fetch(`${API_url}/detect`, {
