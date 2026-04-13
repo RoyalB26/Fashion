@@ -40,14 +40,6 @@ End-to-end Computer Vision project for detecting fashion items using YOLO, deplo
 
 ---
 
-## 📁 Structure
-project/
-├── Data_SetUp/
-├── frontend/
-├── backend/
-├── requirements.txt
-└── README.md
-
 ## Set up
 ```
 git clone https://github.com/your-username/Fashion.git
@@ -56,9 +48,13 @@ pip install -r requirements.txt
 cd backend
 uvicorn main:app --reload
 ```
+---
+
 ## Deployment
 Frontend: Vercel
 Backend: Railway
+
+---
 
 ## Future Work
 Improve accuracy with more data
