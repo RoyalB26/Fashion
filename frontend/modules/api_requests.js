@@ -1,4 +1,4 @@
-let API_url = "https://fashion-production-ca2a.up.railway.app";
+let API_url = "https://fashion-production-896d.up.railway.app/";
 // let API_url = "http://127.0.0.1:8000";
 
 async function sendImageToBackend(base64) {
