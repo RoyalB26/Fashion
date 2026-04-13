@@ -50,8 +50,8 @@ project/
 
 ## Set up
 ```
-git clone https://github.com/your-username/fashion-detection.git
-cd fashion-detection
+git clone https://github.com/your-username/Fashion.git
+cd Fashion
 pip install -r requirements.txt
 cd backend
 uvicorn main:app --reload
